@@ -3,10 +3,14 @@ package com.phuss.hrservicems.resources;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.phuss.hrservicems.model.Employee;
 import com.phuss.hrservicems.model.EmployeesList;
 
-@RequestController
+@RestController
 @RequestMapping("/hr")
 public class HrResources {
 
@@ -29,10 +33,12 @@ public class HrResources {
 	@RequestMapping("/employee/{id}")
 	public Employee getEmployeeById(@PathVariable("id") String id)
 	{
+		Employee employee1= new Employee();
 		for(Employee emp:employees)
 		{
-			if(emp.getId() == id)
-				return emp;
+			if(emp.getId().equals(id))
+				employee1 = emp;
 		}
+		return employee1;
 	}
 }

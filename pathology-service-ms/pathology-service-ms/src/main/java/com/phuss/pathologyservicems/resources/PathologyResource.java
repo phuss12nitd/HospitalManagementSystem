@@ -3,7 +3,9 @@ package com.phuss.pathologyservicems.resources;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.RestoreAction;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.phuss.pathologyservicems.model.Disease;
 import com.phuss.pathologyservicems.model.DiseasesList;
@@ -21,8 +23,6 @@ public class PathologyResource {
 			
 			);
 	
-	@Autowired
-	private DiseasesList diseaseList;
 	
 	@RequestMapping("/disease")
 	public DiseasesList getDisease()
@@ -37,10 +37,12 @@ public class PathologyResource {
 	@RequestMapping("/disease/{id}")
 	public Disease getDiseaseById(@PathVariable("id") String id)
 	{
+		Disease disease1 = new Disease();
 		for(Disease disease: diseases)
 		{
-			if(disease.getId() == id)
-				return disease;
+			if(disease.getId().equals(id))
+				disease1 = disease;
 		}
+		return disease1;
 	}
 }

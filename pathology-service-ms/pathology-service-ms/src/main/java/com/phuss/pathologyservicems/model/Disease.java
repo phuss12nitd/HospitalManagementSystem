@@ -20,6 +20,10 @@ public class Disease {
 	public String getName() {
 		return name;
 	}
+	public Disease() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
