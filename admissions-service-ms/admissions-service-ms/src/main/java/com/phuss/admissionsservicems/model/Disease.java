@@ -17,6 +17,10 @@ public class Disease {
 	public void setId(String id) {
 		this.id = id;
 	}
+	public Disease() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getName() {
 		return name;
 	}
